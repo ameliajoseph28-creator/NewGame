@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Basketball {
+public class Hammer {
     String name;
     Image image;
     int xpos;
@@ -10,53 +10,58 @@ public class Basketball {
     int width;
     Rectangle hitbox;
     int height;
-    boolean isAlive = true;
     int time = 0;
     boolean up = false;
     boolean down = false;
     boolean right = false;
     boolean left = false;
-    public int[] questionnumber;
-    public String[] questions;
 
-    public Basketball() {
+
+    public Hammer() {
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
 
-    public Basketball(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput) {
+    public Hammer(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput) {
         xpos = xposInput;
         ypos = yposInput;
         dx = dxInput;
         dy = dyInput;
         width = widthInput;
         height = heightInput;
-        boolean isAlive = true;
-
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
 
     public void move() {
-        xpos = xpos + (int) dx;
-        ypos = ypos + (int) dy;
+        if (up) {
+            ypos = ypos - (int) dy;
+        }
+        if (down) {
+            ypos = ypos + (int) dy;
+        }
+        if (right) {
+            xpos = xpos + (int) dx;
+        }
+        if (left) {
+            xpos = xpos - (int) dx;
+        }
+
         if (xpos >= 900) {
-            dx = -dx;
+            xpos = 1;
         }
         if (xpos <= 0) {
-            dx = -dx;
+            xpos = 899;
         }
         if (ypos >= 600) {
-            dy = -dy;
+            ypos = 1;
         }
         if (ypos <= 0) {
-            dy = -dy;
+            ypos = 599;
+
+
+
         }
+        hitbox = new Rectangle(xpos, ypos, width, height);
 
 
-    }
-    public static void main(String[] args) {
-        Basketball practice = new Basketball();
     }
 }
-
-
-

@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Soccer {
+public class Trophy{
     String name;
     Image image;
     int xpos;
@@ -10,21 +10,13 @@ public class Soccer {
     int width;
     Rectangle hitbox;
     int height;
-    boolean isAlive = true;
-    int time = 0;
-    boolean up = false;
-    boolean down = false;
-    boolean right = false;
-    boolean left = false;
-    public int[] questionnumber;
-    public String[] questions;
 
-    public Soccer() {
+
+    public Trophy() {
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
 
-
-    public Soccer(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput) {
+    public Trophy(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput) {
         xpos = xposInput;
         ypos = yposInput;
         dx = dxInput;
@@ -52,14 +44,6 @@ public class Soccer {
             dy = -dy;
         }
 
-
-
-
-
-    }
-
-    public static void main(String[] args) {
-        Soccer practice = new Soccer();
+        hitbox = new Rectangle(xpos,ypos,width,height);
     }
 }
-
