@@ -1,5 +1,5 @@
 import java.awt.*;
-
+// Amelia Joseph
 public class Trophy{
     String name;
     Image image;
@@ -10,6 +10,7 @@ public class Trophy{
     int width;
     Rectangle hitbox;
     int height;
+    int trophy_eaten=0;
 
 
     public Trophy() {
@@ -27,7 +28,7 @@ public class Trophy{
 
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-
+    // allows the trophy to move(bounce)
     public void move(){
         xpos = xpos + (int)dx;
         ypos = ypos +(int)dy;

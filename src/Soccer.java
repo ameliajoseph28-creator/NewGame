@@ -16,8 +16,6 @@ public class Soccer {
     boolean down = false;
     boolean right = false;
     boolean left = false;
-    public int[] questionnumber;
-    public String[] questions;
 
     public Soccer() {
         hitbox = new Rectangle(xpos, ypos, width, height);
@@ -35,7 +33,7 @@ public class Soccer {
 
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-
+    // allows the soccer ball(s) to move
     public void move(){
         xpos = xpos + (int)dx;
         ypos = ypos +(int)dy;
@@ -51,9 +49,6 @@ public class Soccer {
         if (ypos<=0){
             dy = -dy;
         }
-
-
-
 
 
     }

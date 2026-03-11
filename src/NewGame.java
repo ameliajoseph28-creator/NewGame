@@ -1,4 +1,4 @@
-
+// Amelia Joseph
     //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv DON'T CHANGE! vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 // Graphics Libraries
 import javax.swing.*;
@@ -8,6 +8,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
+import java.util.Arrays;
+
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     public class NewGame implements Runnable, MouseListener, KeyListener {
 
@@ -16,25 +18,27 @@ import java.awt.image.BufferStrategy;
         final int HEIGHT = 700;
 
 
-        AmericanFootball americanfootball;
-        AmericanFootball americanfootball2;
-        AmericanFootball americanfootball3;
-        AmericanFootball americanfootball4;
-        Image backgroundamericanfootballfield;
-        Tennis tennisball;
+        // variable definition - sets/defines what my variables are
+        AmericanFootball americanFootball;
+        AmericanFootball americanFootball2;
+        AmericanFootball americanFootball3;
+        AmericanFootball americanFootball4;
+        Image backgroundAmericanFootballField;
+        Tennis tennisBall;
         Basketball basketball;
-        Image backgroundbasketballcourt;
-        Soccer soccerball;
-        Soccer soccerball2;
-        Soccer soccerball3;
-        Soccer soccerball4;
-        Image backgroundsoccerpitch;
+        Basketball[] basketballs;
+        Image backgroundBasketballCourt;
+        Soccer soccerBall;
+        Soccer soccerBall2;
+        Soccer soccerBall3;
+        Soccer soccerBall4;
+        Image backgroundSoccerPitch;
         Image background;
-        BowlingBall bowlingball;
-        BowlingBall bowlingball2;
-        BowlingBall bowlingball3;
-        BowlingBall bowlingball4;
-        BowlingBall bowlingball5;
+        BowlingBall bowlingBall;
+        BowlingBall bowlingBall2;
+        BowlingBall bowlingBall3;
+        BowlingBall bowlingBall4;
+        BowlingBall bowlingBall5;
         Image gameover;
         Trophy trophy;
         Image youwin;
@@ -53,44 +57,53 @@ import java.awt.image.BufferStrategy;
 
             //variable and objects
             //create (construct) the objects needed for the game
-
-            americanfootball = new AmericanFootball(575, 400, 4, 8, 90, 100);
-            americanfootball.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
-            americanfootball2 = new AmericanFootball(575,400,3,3,90,100);
-            americanfootball2.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
-            americanfootball3 = new AmericanFootball(200,10,6,3,90,100);
-            americanfootball3.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
-            americanfootball4 = new AmericanFootball(375,90,5,5,90,100);
-            americanfootball4.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
-            backgroundamericanfootballfield = Toolkit.getDefaultToolkit().getImage("AmericanFootballField.jpg");
-            tennisball = new Tennis(450, 800, 2, 2, 90, 100);
-            tennisball.image = Toolkit.getDefaultToolkit().getImage("Tennisball.png");
+            // allows me to upload the picture of my sports so it shows on the screen, and allows me to change the width, height, starting coordinates, and how fast the balls go
+            // the footballs that are there to distract you
+            americanFootball = new AmericanFootball(575, 400, 4, 8, 90, 100);
+            americanFootball.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
+            americanFootball2 = new AmericanFootball(575,400,3,3,90,100);
+            americanFootball2.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
+            americanFootball3 = new AmericanFootball(200,10,6,3,90,100);
+            americanFootball3.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
+            americanFootball4 = new AmericanFootball(375,90,5,5,90,100);
+            americanFootball4.image = Toolkit.getDefaultToolkit().getImage("AmericanFootball.png");
+            backgroundAmericanFootballField = Toolkit.getDefaultToolkit().getImage("AmericanFootballField.jpg");
             basketball = new Basketball(100, 420, 4, 10, 90, 100);
             basketball.image = Toolkit.getDefaultToolkit().getImage("Basketball.png");
-            backgroundbasketballcourt = Toolkit.getDefaultToolkit().getImage("BasketballCourt.jpg");
-            soccerball = new Soccer(700, 550, 5, 2, 90, 100);
-            soccerball.image = Toolkit.getDefaultToolkit().getImage("SoccerBall.png");
-            soccerball2 = new Soccer(20,400,6,6,90,100);
-            soccerball2.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
-            soccerball3 = new Soccer(25,30,6,6,90,100);
-            soccerball3.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
-            soccerball4 = new Soccer(700,350,6,6,90,100);
-            soccerball4.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
-            backgroundsoccerpitch = Toolkit.getDefaultToolkit().getImage("SoccerPitch.jpg");
-            bowlingball = new BowlingBall(575, 400, 6, 6, 90, 100);
-            bowlingball.image = Toolkit.getDefaultToolkit().getImage("BowlingBall.png");
-            bowlingball2 = new BowlingBall(500, 100, 6, 6, 90, 100);
-            bowlingball2.image = Toolkit.getDefaultToolkit().getImage("BowlingBall2.png");
-            bowlingball3 = new BowlingBall(400, 250, 6, 6, 90, 100);
-            bowlingball3.image = Toolkit.getDefaultToolkit().getImage("BowlingBall3.png");
-            bowlingball4 = new BowlingBall(100, 150, 6, 6, 90, 100);
-            bowlingball4.image = Toolkit.getDefaultToolkit().getImage("BowlingBall4.png");
-            bowlingball5 = new BowlingBall(700, 400, 6, 6, 90, 100);
-            bowlingball5.image = Toolkit.getDefaultToolkit().getImage("BowlingBall5.png");
+            // my array - allows me to have 8 balls
+            basketballs = new Basketball[8];
+            for (int i=0; i<basketballs.length; i++){
+                basketballs[i] = new Basketball(400+(3*i), 600-(6*i), 4+i,2+i,90,100);
+                basketballs[i].image = Toolkit.getDefaultToolkit().getImage("Basketball.png");
+            }
+            backgroundBasketballCourt = Toolkit.getDefaultToolkit().getImage("BasketballCourt.jpg");
+            // the soccer balls that are there to distract you
+            soccerBall = new Soccer(700, 550, 5, 2, 90, 100);
+            soccerBall.image = Toolkit.getDefaultToolkit().getImage("SoccerBall.png");
+            soccerBall2 = new Soccer(20,400,6,6,90,100);
+            soccerBall2.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
+            soccerBall3 = new Soccer(25,30,6,6,90,100);
+            soccerBall3.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
+            soccerBall4 = new Soccer(700,350,6,6,90,100);
+            soccerBall4.image = Toolkit.getDefaultToolkit().getImage("Soccerball.png");
+            backgroundSoccerPitch = Toolkit.getDefaultToolkit().getImage("SoccerPitch.jpg");
+            // the bowling balls that if you click on - game over
+            bowlingBall = new BowlingBall(575, 400, 6, 6, 90, 100);
+            bowlingBall.image = Toolkit.getDefaultToolkit().getImage("BowlingBall.png");
+            bowlingBall2 = new BowlingBall(500, 100, 6, 6, 90, 100);
+            bowlingBall2.image = Toolkit.getDefaultToolkit().getImage("BowlingBall2.png");
+            bowlingBall3 = new BowlingBall(400, 250, 6, 6, 90, 100);
+            bowlingBall3.image = Toolkit.getDefaultToolkit().getImage("BowlingBall3.png");
+            bowlingBall4 = new BowlingBall(100, 150, 6, 6, 90, 100);
+            bowlingBall4.image = Toolkit.getDefaultToolkit().getImage("BowlingBall4.png");
+            bowlingBall5 = new BowlingBall(700, 400, 6, 6, 90, 100);
+            bowlingBall5.image = Toolkit.getDefaultToolkit().getImage("BowlingBall5.png");
             gameover = Toolkit.getDefaultToolkit().getImage("gameover.png");
+            // the trophy that you click on to win the game
             trophy = new Trophy(50, 200, 8, 8, 90, 90);
             trophy.image = Toolkit.getDefaultToolkit().getImage("Trophy.png");
             youwin = Toolkit.getDefaultToolkit().getImage("YouWin.png");
+            // the hammer that allows you to get rid of the bowling balls as well as the trophy
             hammer = new Hammer(350, 25, 6, 6, 90, 90);
             hammer.image = Toolkit.getDefaultToolkit().getImage("Hammer.png");
             background = Toolkit.getDefaultToolkit().getImage("TennisCourt.jpg");
@@ -100,43 +113,83 @@ import java.awt.image.BufferStrategy;
         // end BasicGameApp constructor
 
         public void moveThings() {
-            bowlingball.move();
-            bowlingball2.move();
-            bowlingball3.move();
-            bowlingball4.move();
-            bowlingball5.move();
+            // allows my objects to move
+            bowlingBall.move();
+            bowlingBall2.move();
+            bowlingBall3.move();
+            bowlingBall4.move();
+            bowlingBall5.move();
             trophy.move();
             hammer.move();
-            americanfootball.move();
-            americanfootball2.move();
-            americanfootball3.move();
-            americanfootball4.move();
-            soccerball.move();
-            soccerball2.move();
-            soccerball3.move();
-            soccerball4.move();
+            americanFootball.move();
+            americanFootball2.move();
+            americanFootball3.move();
+            americanFootball4.move();
+            soccerBall.move();
+            soccerBall2.move();
+            soccerBall3.move();
+            soccerBall4.move();
             basketball.move();
+            for (int i=0; i<basketballs.length; i++){
+                basketballs[i].move();
+            }
 
             //call the move() code for each object  -
 
         }
 
+        public void checkCollision() {
+            // if the hammer intersects with the bowling balls, then the bowling balls should disappear
+            if (hammer.hitbox.intersects(bowlingBall2.hitbox)) {
+                bowlingBall2.bowlingball_eaten = hammer.bowlingball_eaten + 1;
+                bowlingBall2.xpos = 99999999;
+                bowlingBall2.hitbox = new Rectangle(bowlingBall2.xpos, bowlingBall2.ypos, bowlingBall2.width, bowlingBall2.height);
+                System.out.println(hammer.bowlingball_eaten);
+                System.out.println("hammer has eaten bowlingball 2");
+            } else if (hammer.hitbox.intersects(bowlingBall3.hitbox)) {
+                bowlingBall3.bowlingball_eaten = hammer.bowlingball_eaten + 1;
+                bowlingBall3.xpos = 99999999;
+                bowlingBall3.hitbox = new Rectangle(bowlingBall3.xpos, bowlingBall3.ypos, bowlingBall3.width, bowlingBall3.height);
+                System.out.println(hammer.bowlingball_eaten);
+                System.out.println("hammer has eaten bowlingball 3");
+            } else if (hammer.hitbox.intersects(bowlingBall4.hitbox)) {
+                bowlingBall4.bowlingball_eaten = hammer.bowlingball_eaten + 1;
+                bowlingBall4.xpos = 99999999;
+                bowlingBall4.hitbox = new Rectangle(bowlingBall4.xpos, bowlingBall4.ypos, bowlingBall4.width, bowlingBall4.height);
+                System.out.println(hammer.bowlingball_eaten);
+                System.out.println("hammer has eaten bowlingball 4");
+            } else if (hammer.hitbox.intersects(bowlingBall5.hitbox)) {
+                bowlingBall5.bowlingball_eaten = hammer.bowlingball_eaten + 1;
+                bowlingBall5.xpos = 99999999;
+                bowlingBall5.hitbox = new Rectangle(bowlingBall5.xpos, bowlingBall5.ypos, bowlingBall5.width, bowlingBall5.height);
+                System.out.println(hammer.bowlingball_eaten);
+                System.out.println("hammer has eaten bowlingball 5");
+                // if the hammer intersects with the trophy, the trophy should disapear and stage 4 should print (game over screen)
+            } else if (hammer.hitbox.intersects(trophy.hitbox)){
+                hammer.trophy_eaten = hammer.trophy_eaten+1;
+                trophy.xpos = 999999999;
+                trophy.hitbox = new Rectangle(trophy.xpos, trophy.ypos, trophy.width, trophy.height);
+                System.out.println(hammer.trophy_eaten);
+                System.out.println(stage = 4);
+            }
+        }
         //Paints things on the screen using bufferStrategy
         private void render() {
             Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
 
             g.clearRect(0, 0, WIDTH, HEIGHT);
             if (stage == 0) {
+                // stage 0 - starting stage, all five bowling balls, the basketball, football,and soccerball
                 g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
-                g.drawImage(americanfootball.image, americanfootball.xpos, americanfootball.ypos, americanfootball.width, americanfootball.height, null);
-                g.drawImage(tennisball.image, tennisball.xpos, tennisball.ypos, tennisball.width, tennisball.height, null);
+                g.drawImage(americanFootball.image, americanFootball.xpos, americanFootball.ypos, americanFootball.width, americanFootball.height, null);
+                g.drawImage(tennisBall.image, tennisBall.xpos, tennisBall.ypos, tennisBall.width, tennisBall.height, null);
                 g.drawImage(basketball.image, basketball.xpos, basketball.ypos, basketball.width, basketball.height, null);
-                g.drawImage(soccerball.image, soccerball.xpos, soccerball.ypos, soccerball.width, soccerball.height, null);
-                g.drawImage(bowlingball.image, bowlingball.xpos, bowlingball.ypos, bowlingball.width, bowlingball.height, null);
-                g.drawImage(bowlingball2.image, bowlingball2.xpos, bowlingball2.ypos, bowlingball2.width, bowlingball2.height, null);
-                g.drawImage(bowlingball3.image, bowlingball3.xpos, bowlingball3.ypos, bowlingball3.width, bowlingball3.height, null);
-                g.drawImage(bowlingball4.image, bowlingball4.xpos, bowlingball4.ypos, bowlingball4.width, bowlingball4.height, null);
-                g.drawImage(bowlingball5.image, bowlingball5.xpos, bowlingball5.ypos, bowlingball5.width, bowlingball5.height, null);
+                g.drawImage(soccerBall.image, soccerBall.xpos, soccerBall.ypos, soccerBall.width, soccerBall.height, null);
+                g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
+                g.drawImage(bowlingBall2.image, bowlingBall2.xpos, bowlingBall2.ypos, bowlingBall2.width, bowlingBall2.height, null);
+                g.drawImage(bowlingBall3.image, bowlingBall3.xpos, bowlingBall3.ypos, bowlingBall3.width, bowlingBall3.height, null);
+                g.drawImage(bowlingBall4.image, bowlingBall4.xpos, bowlingBall4.ypos, bowlingBall4.width, bowlingBall4.height, null);
+                g.drawImage(bowlingBall5.image, bowlingBall5.xpos, bowlingBall5.ypos, bowlingBall5.width, bowlingBall5.height, null);
                 g.drawImage(trophy.image, trophy.xpos, trophy.ypos, trophy.width, trophy.height, null);
                 g.drawImage(hammer.image, hammer.xpos, hammer.ypos, hammer.width, hammer.height, null);
 
@@ -144,55 +197,63 @@ import java.awt.image.BufferStrategy;
                 //draw the images
                 // Signature: drawImage(Image img, int x, int y, int width, int height, ImageObserver observer)
             } else if (stage == 1) {
-                g.drawImage(backgroundamericanfootballfield, 0, 0, WIDTH, HEIGHT, null);
-                g.drawImage(tennisball.image, tennisball.xpos, tennisball.ypos, tennisball.width, tennisball.height, null);
+                // stage 1 - when the position is clicked stage one will appear whihc is a football field. The five bowling balls will still be there as well as four new footballs. The background will now be a football field.
+                g.drawImage(backgroundAmericanFootballField, 0, 0, WIDTH, HEIGHT, null);
+                g.drawImage(tennisBall.image, tennisBall.xpos, tennisBall.ypos, tennisBall.width, tennisBall.height, null);
                 g.drawImage(basketball.image, basketball.xpos, basketball.ypos, basketball.width, basketball.height, null);
-                g.drawImage(soccerball.image, soccerball.xpos, soccerball.ypos, soccerball.width, soccerball.height, null);
-                g.drawImage(bowlingball.image, bowlingball.xpos, bowlingball.ypos, bowlingball.width, bowlingball.height, null);
-                g.drawImage(bowlingball2.image, bowlingball2.xpos, bowlingball2.ypos, bowlingball2.width, bowlingball2.height, null);
-                g.drawImage(bowlingball3.image, bowlingball3.xpos, bowlingball3.ypos, bowlingball3.width, bowlingball3.height, null);
-                g.drawImage(bowlingball4.image, bowlingball4.xpos, bowlingball4.ypos, bowlingball4.width, bowlingball4.height, null);
-                g.drawImage(bowlingball5.image, bowlingball5.xpos, bowlingball5.ypos, bowlingball5.width, bowlingball5.height, null);
+                g.drawImage(soccerBall.image, soccerBall.xpos, soccerBall.ypos, soccerBall.width, soccerBall.height, null);
+                g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
+                g.drawImage(bowlingBall2.image, bowlingBall2.xpos, bowlingBall2.ypos, bowlingBall2.width, bowlingBall2.height, null);
+                g.drawImage(bowlingBall3.image, bowlingBall3.xpos, bowlingBall3.ypos, bowlingBall3.width, bowlingBall3.height, null);
+                g.drawImage(bowlingBall4.image, bowlingBall4.xpos, bowlingBall4.ypos, bowlingBall4.width, bowlingBall4.height, null);
+                g.drawImage(bowlingBall5.image, bowlingBall5.xpos, bowlingBall5.ypos, bowlingBall5.width, bowlingBall5.height, null);
                 g.drawImage(trophy.image, trophy.xpos, trophy.ypos, trophy.width, trophy.height, null);
-                g.drawImage(americanfootball.image,americanfootball.xpos, americanfootball.ypos,americanfootball.width, americanfootball.height,null);
-                g.drawImage(americanfootball2.image,americanfootball2.xpos, americanfootball2.ypos,americanfootball2.width, americanfootball2.height,null);
-                g.drawImage(americanfootball3.image,americanfootball3.xpos, americanfootball3.ypos,americanfootball3.width, americanfootball3.height,null);
-                g.drawImage(americanfootball4.image,americanfootball4.xpos, americanfootball4.ypos,americanfootball4.width, americanfootball4.height,null);
+                g.drawImage(americanFootball.image,americanFootball.xpos, americanFootball.ypos,americanFootball.width, americanFootball.height,null);
+                g.drawImage(americanFootball2.image,americanFootball2.xpos, americanFootball2.ypos,americanFootball2.width, americanFootball2.height,null);
+                g.drawImage(americanFootball3.image,americanFootball3.xpos, americanFootball3.ypos,americanFootball3.width, americanFootball3.height,null);
+                g.drawImage(americanFootball4.image,americanFootball4.xpos, americanFootball4.ypos,americanFootball4.width, americanFootball4.height,null);
                 g.drawImage(hammer.image, hammer.xpos, hammer.ypos, hammer.width, hammer.height, null);
 
             } else if (stage == 2) {
-                g.drawImage(backgroundsoccerpitch, 0, 0, WIDTH, HEIGHT, null);
-                g.drawImage(tennisball.image, tennisball.xpos, tennisball.ypos, tennisball.width, tennisball.height, null);
+                // stage 2 - when the position is clicked stage two will apear which is a soccer field. The five bowling balls will still be there as well as four new soccer balls. The background will now be a soccer field.
+                g.drawImage(backgroundSoccerPitch, 0, 0, WIDTH, HEIGHT, null);
+                g.drawImage(tennisBall.image, tennisBall.xpos, tennisBall.ypos, tennisBall.width, tennisBall.height, null);
                 g.drawImage(basketball.image, basketball.xpos, basketball.ypos, basketball.width, basketball.height, null);
-                g.drawImage(americanfootball.image, americanfootball.xpos, americanfootball.ypos, americanfootball.width, americanfootball.height, null);
-                g.drawImage(bowlingball.image, bowlingball.xpos, bowlingball.ypos, bowlingball.width, bowlingball.height, null);
-                g.drawImage(bowlingball2.image, bowlingball2.xpos, bowlingball2.ypos, bowlingball2.width, bowlingball2.height, null);
-                g.drawImage(bowlingball3.image, bowlingball3.xpos, bowlingball3.ypos, bowlingball3.width, bowlingball3.height, null);
-                g.drawImage(bowlingball4.image, bowlingball4.xpos, bowlingball4.ypos, bowlingball4.width, bowlingball4.height, null);
-                g.drawImage(bowlingball5.image, bowlingball5.xpos, bowlingball5.ypos, bowlingball5.width, bowlingball5.height, null);
+                g.drawImage(americanFootball.image, americanFootball.xpos, americanFootball.ypos, americanFootball.width, americanFootball.height, null);
+                g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
+                g.drawImage(bowlingBall2.image, bowlingBall2.xpos, bowlingBall2.ypos, bowlingBall2.width, bowlingBall2.height, null);
+                g.drawImage(bowlingBall3.image, bowlingBall3.xpos, bowlingBall3.ypos, bowlingBall3.width, bowlingBall3.height, null);
+                g.drawImage(bowlingBall4.image, bowlingBall4.xpos, bowlingBall4.ypos, bowlingBall4.width, bowlingBall4.height, null);
+                g.drawImage(bowlingBall5.image, bowlingBall5.xpos, bowlingBall5.ypos, bowlingBall5.width, bowlingBall5.height, null);
                 g.drawImage(trophy.image, trophy.xpos, trophy.ypos, trophy.width, trophy.height, null);
                 g.drawImage(hammer.image, hammer.xpos, hammer.ypos, hammer.width, hammer.height, null);
-                g.drawImage(soccerball.image,soccerball.xpos,soccerball.ypos,soccerball.width,soccerball.height,null);
-                g.drawImage(soccerball2.image,soccerball2.xpos,soccerball2.ypos,soccerball2.width,soccerball2.height,null);
-                g.drawImage(soccerball3.image,soccerball3.xpos,soccerball3.ypos,soccerball3.width,soccerball3.height,null);
-                g.drawImage(soccerball4.image,soccerball4.xpos,soccerball4.ypos,soccerball4.width,soccerball4.height,null);
+                g.drawImage(soccerBall.image,soccerBall.xpos,soccerBall.ypos,soccerBall.width,soccerBall.height,null);
+                g.drawImage(soccerBall2.image,soccerBall2.xpos,soccerBall2.ypos,soccerBall2.width,soccerBall2.height,null);
+                g.drawImage(soccerBall3.image,soccerBall3.xpos,soccerBall3.ypos,soccerBall3.width,soccerBall3.height,null);
+                g.drawImage(soccerBall4.image,soccerBall4.xpos,soccerBall4.ypos,soccerBall4.width,soccerBall4.height,null);
             } else if (stage == 3) {
-                g.drawImage(backgroundbasketballcourt, 0, 0, WIDTH, HEIGHT, null);
-                g.drawImage(americanfootball.image, americanfootball.xpos, americanfootball.ypos, americanfootball.width, americanfootball.height, null);
-                g.drawImage(soccerball.image, soccerball.xpos, soccerball.ypos, soccerball.width, soccerball.height, null);
-                g.drawImage(bowlingball.image, bowlingball.xpos, bowlingball.ypos, bowlingball.width, bowlingball.height, null);
-                g.drawImage(bowlingball2.image, bowlingball2.xpos, bowlingball2.ypos, bowlingball2.width, bowlingball2.height, null);
-                g.drawImage(bowlingball3.image, bowlingball3.xpos, bowlingball3.ypos, bowlingball3.width, bowlingball3.height, null);
-                g.drawImage(bowlingball4.image, bowlingball4.xpos, bowlingball4.ypos, bowlingball4.width, bowlingball4.height, null);
-                g.drawImage(bowlingball5.image, bowlingball5.xpos, bowlingball5.ypos, bowlingball5.width, bowlingball5.height, null);
+                // stage 3 - when the position is clicked stage three will appear which is a basketball court. The five bowling balls will still be there as well as eight new basketball balls(use of array here). The background will now be a basketball court.
+                g.drawImage(backgroundBasketballCourt, 0, 0, WIDTH, HEIGHT, null);
+                g.drawImage(americanFootball.image, americanFootball.xpos, americanFootball.ypos, americanFootball.width, americanFootball.height, null);
+                g.drawImage(soccerBall.image, soccerBall.xpos, soccerBall.ypos, soccerBall.width, soccerBall.height, null);
+                g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
+                g.drawImage(bowlingBall2.image, bowlingBall2.xpos, bowlingBall2.ypos, bowlingBall2.width, bowlingBall2.height, null);
+                g.drawImage(bowlingBall3.image, bowlingBall3.xpos, bowlingBall3.ypos, bowlingBall3.width, bowlingBall3.height, null);
+                g.drawImage(bowlingBall4.image, bowlingBall4.xpos, bowlingBall4.ypos, bowlingBall4.width, bowlingBall4.height, null);
+                g.drawImage(bowlingBall5.image, bowlingBall5.xpos, bowlingBall5.ypos, bowlingBall5.width, bowlingBall5.height, null);
                 g.drawImage(trophy.image, trophy.xpos, trophy.ypos, trophy.width, trophy.height, null);
                 g.drawImage(hammer.image, hammer.xpos, hammer.ypos, hammer.width, hammer.height, null);
+                for (int i=0; i<basketballs.length; i++){
+                    g.drawImage(basketballs[i].image,basketballs[i].xpos,basketballs[i].ypos,basketballs[i].width, basketballs[i].height, null);
+                }
 
 
             } else if (stage == 4) {
+                // stage 4 - the game over screen when something bad happens
                 g.drawImage(gameover, 0, 0, WIDTH, HEIGHT, null);
 
             } else if (stage == 5) {
+                // stage 5 - when you click the trophy, the "you win" screen
                 g.drawImage(youwin, 0, 0, WIDTH, HEIGHT, null);
             }
 
@@ -222,7 +283,8 @@ import java.awt.image.BufferStrategy;
         public void run() {
             //for the moment we will loop things forever.
             while (true) {
-                moveThings();  //move all the game objects
+                moveThings();//move all the game objects
+                checkCollision();
                 render();  // paint the graphics
                 pause(10); // sleep for 10 ms
             }
@@ -253,6 +315,7 @@ import java.awt.image.BufferStrategy;
             canvas = new Canvas();
             canvas.setBounds(0, 0, WIDTH, HEIGHT);
             canvas.setIgnoreRepaint(true);
+            canvas.addKeyListener(this);
             canvas.addMouseListener(this);
             panel.add(canvas);  // adds the canvas to the panel.
 
@@ -276,43 +339,44 @@ import java.awt.image.BufferStrategy;
 
         @Override
         public void mousePressed(MouseEvent e) {
+            // when the mouse clicks _____, print out the specific stage
             System.out.println(stage == 0);
             int mouseX = e.getX();
             int mouseY = e.getY();
-            if (americanfootball.hitbox.contains(mouseX, mouseY)) {
+            if (americanFootball.hitbox.contains(mouseX, mouseY)) {
                 stage = 1;
                 System.out.println(stage);
-            } else if (soccerball.hitbox.contains(mouseX, mouseY)) {
+            } else if (soccerBall.hitbox.contains(mouseX, mouseY)) {
                 stage = 2;
                 System.out.println(stage);
             } else if (basketball.hitbox.contains(mouseX, mouseY)) {
                 stage = 3;
                 System.out.println(stage);
-            } else if (bowlingball.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall.hitbox.contains(mouseX, mouseY)) {
                 stage = 4;
                 System.out.println(stage);
-            } else if (bowlingball2.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall2.hitbox.contains(mouseX, mouseY)) {
                 stage = 4;
                 System.out.println(stage);
-            } else if (bowlingball3.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall3.hitbox.contains(mouseX, mouseY)) {
                 stage = 4;
                 System.out.println(stage);
-            } else if (bowlingball4.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall4.hitbox.contains(mouseX, mouseY)) {
                 stage = 4;
                 System.out.println(stage);
-            } else if (bowlingball5.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall5.hitbox.contains(mouseX, mouseY)) {
                 stage = 4;
                 System.out.println(stage);
             } else if (trophy.hitbox.contains(mouseX, mouseY)) {
                 stage = 5;
                 System.out.println(stage);
-            } else if (americanfootball2.hitbox.contains(mouseX,mouseY)) {
+            } else if (americanFootball2.hitbox.contains(mouseX,mouseY)) {
                 stage = 4;
                 System.out.println(stage);
-            } else if (americanfootball3.hitbox.contains(mouseX,mouseY)) {
+            } else if (americanFootball3.hitbox.contains(mouseX,mouseY)) {
                 stage =4;
                 System.out.println(stage);
-            }  else if (americanfootball4.hitbox.contains(mouseX,mouseY)){
+            }  else if (americanFootball4.hitbox.contains(mouseX,mouseY)){
                     stage = 4;
                     System.out.println(stage);
             } else {
@@ -323,31 +387,32 @@ import java.awt.image.BufferStrategy;
 
         @Override
         public void mouseReleased(MouseEvent e) {
+            // when the mouse is released, print out the specific stage
             int mouseX = e.getX();
             int mouseY = e.getY();
-            if (americanfootball.hitbox.contains(mouseX, mouseY)) {
+            if (americanFootball.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 1);
-            } else if (soccerball.hitbox.contains(mouseX, mouseY)) {
+            } else if (soccerBall.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 2);
             } else if (basketball.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 3);
-            } else if (bowlingball.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 4);
-            } else if (bowlingball2.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall2.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 4);
-            } else if (bowlingball3.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall3.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 4);
-            } else if (bowlingball4.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall4.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 4);
-            } else if (bowlingball5.hitbox.contains(mouseX, mouseY)) {
+            } else if (bowlingBall5.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 4);
             } else if (trophy.hitbox.contains(mouseX, mouseY)) {
                 System.out.println(stage == 5);
-            }else if (americanfootball2.hitbox.contains(mouseX,mouseY)) {
+            }else if (americanFootball2.hitbox.contains(mouseX,mouseY)) {
                 System.out.println(stage == 4);
-            } else if (americanfootball3.hitbox.contains(mouseX,mouseY)) {
+            } else if (americanFootball3.hitbox.contains(mouseX,mouseY)) {
                 System.out.println(stage ==4);
-            }  else if (americanfootball4.hitbox.contains(mouseX,mouseY)){
+            }  else if (americanFootball4.hitbox.contains(mouseX,mouseY)){
                 System.out.println(stage ==4);
             } else {
                 System.out.println(stage == 0);
@@ -371,6 +436,7 @@ import java.awt.image.BufferStrategy;
 
         @Override
         public void keyPressed(KeyEvent e) {
+            // allow the wsda keys to manouver the hammer
             System.out.println(e.getKeyCode());
             int key = e.getKeyCode();
             if (key == 65) { // a is pressed
@@ -386,6 +452,7 @@ import java.awt.image.BufferStrategy;
         }
             @Override
             public void keyReleased (KeyEvent e){
+            // stop moving the hammer when the key is released
             int key = e.getKeyCode();
             if (key == 65) { // a is pressed
                 hammer.left = false;

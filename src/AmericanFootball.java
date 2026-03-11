@@ -1,5 +1,5 @@
 import java.awt.*;
-
+// Amelia Joseph
 public class AmericanFootball {
     String name;
     Image image;
@@ -16,9 +16,6 @@ public class AmericanFootball {
     boolean down = false;
     boolean right = false;
     boolean left = false;
-    public int[] questionnumber;
-    public String[] questions;
-
 
     public AmericanFootball() {
         hitbox = new Rectangle(xpos, ypos, width, height);
@@ -35,19 +32,7 @@ public class AmericanFootball {
 
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-    public void AmericanFootballField(int xposInput, int yposInput, double dxInput, double dyInput, int widthInput, int heightInput) {
-        xpos = xposInput;
-        ypos = yposInput;
-        dx = dxInput;
-        dy = dyInput;
-        width = widthInput;
-        height = heightInput;
-        boolean isAlive = true;
-
-        hitbox = new Rectangle(xpos, ypos, width, height);
-    }
-
-
+    // allows the footballs to move
     public void move() {
         xpos = xpos + (int) dx;
         ypos = ypos + (int) dy;

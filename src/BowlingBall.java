@@ -1,5 +1,5 @@
 import java.awt.*;
-
+// Amelia Joseph
 public class BowlingBall{
     String name;
     Image image;
@@ -10,6 +10,7 @@ public class BowlingBall{
     int width;
     Rectangle hitbox;
     int height;
+    int bowlingball_eaten=0;
 
 
     public BowlingBall() {
@@ -27,7 +28,7 @@ public class BowlingBall{
 
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-
+// allows the bowling balls to move(bounce)
     public void move(){
         xpos = xpos + (int)dx;
         ypos = ypos +(int)dy;

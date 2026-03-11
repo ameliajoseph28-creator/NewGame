@@ -1,5 +1,5 @@
 import java.awt.*;
-
+// Amelia Joseph
 public class Hammer {
     String name;
     Image image;
@@ -15,6 +15,8 @@ public class Hammer {
     boolean down = false;
     boolean right = false;
     boolean left = false;
+    int bowlingball_eaten = 0;
+    int trophy_eaten = 0;
 
 
     public Hammer() {
@@ -30,7 +32,7 @@ public class Hammer {
         height = heightInput;
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-
+// allows the hammer to move (wrap around the screen) and be controlled by keys
     public void move() {
         if (up) {
             ypos = ypos - (int) dy;

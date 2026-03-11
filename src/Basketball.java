@@ -1,5 +1,5 @@
 import java.awt.*;
-
+// Amelia Joseph
 public class Basketball {
     String name;
     Image image;
@@ -16,8 +16,7 @@ public class Basketball {
     boolean down = false;
     boolean right = false;
     boolean left = false;
-    public int[] questionnumber;
-    public String[] questions;
+
 
     public Basketball() {
         hitbox = new Rectangle(xpos, ypos, width, height);
@@ -34,7 +33,7 @@ public class Basketball {
 
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
-
+//allows the basketball(s) to move
     public void move() {
         xpos = xpos + (int) dx;
         ypos = ypos + (int) dy;

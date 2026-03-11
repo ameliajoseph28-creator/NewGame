@@ -36,31 +36,7 @@ public class Tennis {
         hitbox = new Rectangle(xpos, ypos, width, height);
     }
 
-    public void tennisquestions(){
-        questionnumber = new int[10]; // collection of 10 integers
-        // System.out.println(intArray[2]); // prints 0
-        questionnumber[2] = 6;
-        // System.out.println(intArray[2]); // prints 6
 
-        questionnumber = new int[11];
-        questions[0] = "Who is this?";
-        questions[1] = "How many grand slams per year?";
-        questions[2] = "What team is this?";
-        questions[3] = "";
-        questions[4] = "";
-        questions[5] = "";
-        questions[6] = "";
-        questions[7] = "";
-        questions[8] = "";
-        questions[9] = "";
-        questions[10] = "";
-        for (int i=0; i<=11; i=i+1){
-            System.out.println(questions[i]);
-        }
-
-
-
-    }
 
     public static void main(String[] args) {
         Tennis practice = new Tennis();
