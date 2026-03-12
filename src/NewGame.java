@@ -176,13 +176,11 @@ import java.util.Arrays;
         //Paints things on the screen using bufferStrategy
         private void render() {
             Graphics2D g = (Graphics2D) bufferStrategy.getDrawGraphics();
-
             g.clearRect(0, 0, WIDTH, HEIGHT);
             if (stage == 0) {
                 // stage 0 - starting stage, all five bowling balls, the basketball, football,and soccerball
                 g.drawImage(background, 0, 0, WIDTH, HEIGHT, null);
                 g.drawImage(americanFootball.image, americanFootball.xpos, americanFootball.ypos, americanFootball.width, americanFootball.height, null);
-                g.drawImage(tennisBall.image, tennisBall.xpos, tennisBall.ypos, tennisBall.width, tennisBall.height, null);
                 g.drawImage(basketball.image, basketball.xpos, basketball.ypos, basketball.width, basketball.height, null);
                 g.drawImage(soccerBall.image, soccerBall.xpos, soccerBall.ypos, soccerBall.width, soccerBall.height, null);
                 g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
@@ -199,7 +197,6 @@ import java.util.Arrays;
             } else if (stage == 1) {
                 // stage 1 - when the position is clicked stage one will appear whihc is a football field. The five bowling balls will still be there as well as four new footballs. The background will now be a football field.
                 g.drawImage(backgroundAmericanFootballField, 0, 0, WIDTH, HEIGHT, null);
-                g.drawImage(tennisBall.image, tennisBall.xpos, tennisBall.ypos, tennisBall.width, tennisBall.height, null);
                 g.drawImage(basketball.image, basketball.xpos, basketball.ypos, basketball.width, basketball.height, null);
                 g.drawImage(soccerBall.image, soccerBall.xpos, soccerBall.ypos, soccerBall.width, soccerBall.height, null);
                 g.drawImage(bowlingBall.image, bowlingBall.xpos, bowlingBall.ypos, bowlingBall.width, bowlingBall.height, null);
@@ -213,7 +210,6 @@ import java.util.Arrays;
                 g.drawImage(americanFootball3.image,americanFootball3.xpos, americanFootball3.ypos,americanFootball3.width, americanFootball3.height,null);
                 g.drawImage(americanFootball4.image,americanFootball4.xpos, americanFootball4.ypos,americanFootball4.width, americanFootball4.height,null);
                 g.drawImage(hammer.image, hammer.xpos, hammer.ypos, hammer.width, hammer.height, null);
-
             } else if (stage == 2) {
                 // stage 2 - when the position is clicked stage two will apear which is a soccer field. The five bowling balls will still be there as well as four new soccer balls. The background will now be a soccer field.
                 g.drawImage(backgroundSoccerPitch, 0, 0, WIDTH, HEIGHT, null);
